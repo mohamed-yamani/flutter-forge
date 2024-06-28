@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterforge/common/screenutil/screenutil.dart';
-import 'package:flutterforge/presentation/home_screen.dart';
+import 'package:flutterforge/presentation/journeys/home/home_screen.dart';
 import 'package:flutterforge/presentation/themes/app_color.dart';
 import 'package:flutterforge/presentation/themes/theme_text.dart';
 

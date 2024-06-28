@@ -28,6 +28,7 @@ class Sizes {
   static const double dimen_96 = 96.0;
   static const double dimen_128 = 128.0;
   static const double dimen_256 = 256.0;
+  static const double dimen_320 = 320.0;
   static const double dimen_512 = 512.0;
   static const double dimen_1024 = 1024.0;
   static const double dimen_2048 = 2048.0;
