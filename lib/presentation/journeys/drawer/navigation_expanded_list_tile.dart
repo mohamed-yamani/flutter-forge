@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterforge/presentation/journeys/drawer/navigation_list_item.dart';
 
 class NavigationExpandedListItem extends StatelessWidget {
   final Key? key;
@@ -35,12 +36,11 @@ class NavigationExpandedListItem extends StatelessWidget {
                       color: Colors.white,
                     )),
             children: items
-                .map((e) => ListTile(
-                      title: Text(e,
-                          style:
-                              Theme.of(context).textTheme.titleMedium!.copyWith(
-                                    color: Colors.white,
-                                  )),
+                .map((e) => NavigationSubListItem(
+                      title: e,
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
                     ))
                 .toList(),
           )),
