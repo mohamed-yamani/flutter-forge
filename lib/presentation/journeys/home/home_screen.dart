@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        // drawer: MyNavigationDrawer(),
         body: SafeArea(
       child:
           Text("Home Screen", style: Theme.of(context).textTheme.headlineLarge),
