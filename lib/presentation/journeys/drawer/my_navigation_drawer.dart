@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterforge/common/constants/languages.dart';
 import 'package:flutterforge/common/constants/size_constants.dart';
 import 'package:flutterforge/common/extensions%20/size_extensions.dart';
 import 'package:flutterforge/presentation/journeys/drawer/navigation_expanded_list_tile.dart';
@@ -74,7 +75,7 @@ class _MyNavigationDrawerState extends State<MyNavigationDrawer>
               onTap: () {
                 Navigator.pop(context);
               },
-              items: const ["Item 1", "Item 2", "Item 3"],
+              items: Languages.languages.map((e) => e.value).toList(),
             ),
           ],
         ),
