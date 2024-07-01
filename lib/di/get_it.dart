@@ -4,6 +4,7 @@ import 'package:flutterforge/data/repositories/forge_repository_impl.dart';
 import 'package:flutterforge/domain/repositories/forge_repository.dart';
 import 'package:flutterforge/domain/usecases/get_breeds_use_case.dart';
 import 'package:flutterforge/presentation/blocs/get_breeds_bloc/get_breeds_bloc.dart';
+import 'package:flutterforge/presentation/blocs/language_bloc/language_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
 
@@ -27,4 +28,6 @@ Future init() async {
   getItInstance.registerSingleton<GetBreedsBloc>(GetBreedsBloc(
     getBreedsUseCase: getItInstance(),
   ));
+
+  getItInstance.registerSingleton<LanguageBloc>(LanguageBloc());
 }
