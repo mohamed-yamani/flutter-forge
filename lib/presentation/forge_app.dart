@@ -57,7 +57,7 @@ class _ForgeAppState extends State<ForgeApp> {
               supportedLocales: Languages.languages
                   .map((language) => Locale(language.code))
                   .toList(),
-              locale: Locale(Languages.languages[2].code),
+              locale: Locale(state.locale.languageCode),
               localizationsDelegates: const [
                 GlobalMaterialLocalizations.delegate,
                 AppLocalizations.delegate,
