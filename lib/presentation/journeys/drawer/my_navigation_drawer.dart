@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutterforge/common/constants/languages.dart';
 import 'package:flutterforge/common/constants/size_constants.dart';
+import 'package:flutterforge/common/constants/translation_constants.dart';
 import 'package:flutterforge/common/extensions%20/size_extensions.dart';
+import 'package:flutterforge/common/extensions%20/string_extensions.dart';
 import 'package:flutterforge/presentation/journeys/drawer/navigation_expanded_list_tile.dart';
 import 'package:flutterforge/presentation/journeys/drawer/navigation_list_item.dart';
 
@@ -46,7 +48,7 @@ class _MyNavigationDrawerState extends State<MyNavigationDrawer>
             const SizedBox(height: 50),
             NavigationListItem(
               key: const Key("HOME"),
-              title: "Home",
+              title: TranslationConstants.homePage.t(context),
               icon: Icons.home,
               onTap: () {
                 Navigator.pop(context);
@@ -54,7 +56,7 @@ class _MyNavigationDrawerState extends State<MyNavigationDrawer>
             ),
             NavigationListItem(
               key: const Key("FAVORITES"),
-              title: "Favorites",
+              title: TranslationConstants.favorites.t(context),
               icon: Icons.favorite,
               onTap: () {
                 Navigator.pop(context);
@@ -62,7 +64,7 @@ class _MyNavigationDrawerState extends State<MyNavigationDrawer>
             ),
             NavigationListItem(
               key: const Key("SETTINGS"),
-              title: "Settings",
+              title: TranslationConstants.settings.t(context),
               icon: Icons.settings,
               onTap: () {
                 Navigator.pop(context);
