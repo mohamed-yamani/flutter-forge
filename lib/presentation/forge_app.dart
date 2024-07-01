@@ -37,9 +37,9 @@ class _ForgeAppState extends State<ForgeApp> {
     ScreenUtil.init();
     return BlocProvider<LanguageBloc>.value(
       value: languageBloc!,
-      child: BlocBuilder<LanguageBloc, LanguageState>(
+      child: BlocBuilder<LanguageBloc, LanguagesState>(
         builder: (context, state) {
-          if (state is LanguageLoaded) {
+          if (state is LanguageLoadedState) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               title: "Flutter Forge",
