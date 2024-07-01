@@ -10,7 +10,7 @@ part 'language_state.dart';
 
 class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
   LanguageBloc()
-      : super(LanguageLoaded(locale: Locale(Languages.languages[0].code)));
+      : super(LanguageLoaded(locale: Locale(Languages.languages[2].code)));
 
   Stream<LanguageState> mapEventToState(
     LanguageEvent event,
