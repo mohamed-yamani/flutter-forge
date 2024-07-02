@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:flutterforge/data/data_sources/remote_data_source.dart';
 import 'package:flutterforge/data/models/result_model.dart';
@@ -12,16 +14,12 @@ class ForgeRepositoryImpl extends ForgeRepository {
   @override
   Future<Either<AppError, List<BreedsData>>> getBreeds() async {
     try {
-      // return await remoteDataSource.getResults();
-      try {
-        final breeds = await remoteDataSource.getBreeds();
-        return breeds;
-      } catch (e) {
-        return Left(
-            AppError(message: e.toString().replaceAll('Exception: ', '')));
-      }
-    } catch (e) {
-      rethrow;
+      final breeds = await remoteDataSource.getBreeds();
+      return breeds;
+    } on SocketException {
+      return const Left(AppError(AppErrorType.network));
+    } on Exception {
+      return const Left(AppError(AppErrorType.api));
     }
   }
 }
