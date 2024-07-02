@@ -23,7 +23,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       final breeds = results.map((e) => BreedsData.fromJson(e)).toList();
       return Right(breeds);
     } else {
-      return const Left(AppError(message: 'No breeds found'));
+      return const Left(AppError(AppErrorType.api));
     }
   }
 }
