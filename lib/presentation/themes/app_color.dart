@@ -21,4 +21,18 @@ class AppColors {
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
   static const Color transparent = Color(0x00000000);
+  static const Color dark = Color(0xFF121212);
+
+  static const Color primaryDark = Color(0xFFFFFFFF);
+  static const Color primaryLight = Color(0xFF000000);
+
+  // dividerDark
+  static const Color dividerDark = Color(0xFF424242);
+  // dividerLight
+  static const Color dividerLight = Color(0xFFE0E0E0);
+
+  // light theme
+  static const Color light = Color(0xFFFFFFFF);
+  static const Color inactivegrey = Color(0xFFE0E0E0);
+  static const Color secondaryDark = Color(0xFF03DAC6);
 }
