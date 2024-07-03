@@ -27,7 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Flutter Forge"),
+          backgroundColor: Theme.of(context).backgroundColor,
+          title: Text(
+            "Flutter Forge",
+            style: Theme.of(context).textTheme.headline6!.copyWith(
+                  color: Theme.of(context).backgroundColor,
+                ),
+          ),
 
           // open drawer
           leading: Builder(
