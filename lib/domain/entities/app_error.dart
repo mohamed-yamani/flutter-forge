@@ -14,4 +14,5 @@ enum AppErrorType {
   server,
   unknown,
   api,
+  cache,
 }

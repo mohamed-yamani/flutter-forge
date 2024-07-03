@@ -3,6 +3,7 @@ import 'package:flutterforge/common/constants/translation_constants.dart';
 import 'package:flutterforge/common/extensions%20/string_extensions.dart';
 import 'package:flutterforge/di/get_it.dart';
 import 'package:flutterforge/presentation/blocs/get_breeds_bloc/get_breeds_bloc.dart';
+import 'package:flutterforge/presentation/themes/toggle_theme.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,11 +31,16 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(TranslationConstants.homePage.t(context),
-              style: Theme.of(context).textTheme.headlineLarge),
-          const Divider(
-            color: Colors.black,
+          Text(
+            TranslationConstants.homePage.t(context),
+            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                  color: Theme.of(context).primaryColor,
+                ),
           ),
+          Divider(
+            color: Theme.of(context).dividerColor,
+          ),
+          const ToggleTheme(),
         ],
       ),
     ));
