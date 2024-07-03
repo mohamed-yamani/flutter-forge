@@ -63,6 +63,9 @@ class _ForgeAppState extends State<ForgeApp> {
                         : AppColors.primaryLight,
                     colorScheme: ColorScheme.fromSwatch(
                       primarySwatch: Colors.purple,
+                      backgroundColor: themesState == Themes.dark
+                          ? AppColors.dark
+                          : AppColors.light,
                     ),
                     scaffoldBackgroundColor: themesState == Themes.dark
                         ? AppColors.dark
