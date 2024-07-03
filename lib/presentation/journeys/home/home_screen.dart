@@ -44,10 +44,13 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(TranslationConstants.homePage.t(context),
-                  style: Theme.of(context).textTheme.headlineLarge),
-              const Divider(
-                color: Colors.black,
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                        color: Theme.of(context).primaryColor,
+                      )),
+              Divider(
+                color: Theme.of(context).primaryColor,
               ),
+              const ToggleTheme(),
             ],
           ),
         ));
