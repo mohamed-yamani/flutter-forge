@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterforge/di/get_it.dart';
 import 'package:flutterforge/domain/entities/language_entity.dart';
-import 'package:flutterforge/presentation/blocs/language_bloc/language_bloc.dart';
+import 'package:flutterforge/presentation/blocs/languages/languages_bloc.dart';
 import 'package:flutterforge/presentation/journeys/drawer/navigation_list_item.dart';
 
 class NavigationExpandedListItem extends StatefulWidget {
@@ -26,12 +25,12 @@ class NavigationExpandedListItem extends StatefulWidget {
 
 class _NavigationExpandedListItemState
     extends State<NavigationExpandedListItem> {
-  LanguageBloc? languageBloc;
+  LanguagesBloc? languageBloc;
 
   @override
   void initState() {
     super.initState();
-    languageBloc = getItInstance<LanguageBloc>();
+    languageBloc = getItInstance<LanguagesBloc>();
   }
 
   @override

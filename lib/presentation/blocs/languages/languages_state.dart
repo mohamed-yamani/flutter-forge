@@ -1,4 +1,4 @@
-part of 'language_bloc.dart';
+part of 'languages_bloc.dart';
 
 abstract class LanguagesState extends Equatable {
   const LanguagesState();

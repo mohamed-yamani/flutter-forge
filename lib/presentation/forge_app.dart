@@ -5,10 +5,9 @@ import 'package:flutterforge/common/constants/route_constants.dart';
 import 'package:flutterforge/common/screenutil/screenutil.dart';
 import 'package:flutterforge/di/get_it.dart';
 import 'package:flutterforge/presentation/app_localizations.dart';
-import 'package:flutterforge/presentation/blocs/language_bloc/language_bloc.dart';
+import 'package:flutterforge/presentation/blocs/languages/languages_bloc.dart';
 import 'package:flutterforge/presentation/blocs/theme/theme_cubit.dart';
 import 'package:flutterforge/presentation/fade_page_route_builder.dart';
-import 'package:flutterforge/presentation/journeys/home/home_screen.dart';
 import 'package:flutterforge/presentation/routes.dart';
 import 'package:flutterforge/presentation/themes/app_color.dart';
 import 'package:flutterforge/presentation/themes/theme_text.dart';
@@ -22,13 +21,14 @@ class ForgeApp extends StatefulWidget {
 }
 
 class _ForgeAppState extends State<ForgeApp> {
-  LanguageBloc? languageBloc;
+  LanguagesBloc? languageBloc;
   ThemeCubit? _themeCubit;
 
   @override
   void initState() {
     super.initState();
-    languageBloc = getItInstance<LanguageBloc>();
+    languageBloc = getItInstance<LanguagesBloc>();
+    languageBloc!.add(LoadPreferredLanguagesEvent());
     _themeCubit = getItInstance<ThemeCubit>();
     _themeCubit!.loadPreferredTheme();
   }
@@ -44,14 +44,14 @@ class _ForgeAppState extends State<ForgeApp> {
     ScreenUtil.init();
     return MultiBlocProvider(
       providers: [
-        BlocProvider<LanguageBloc>.value(
+        BlocProvider<LanguagesBloc>.value(
           value: languageBloc!,
         ),
         BlocProvider.value(
           value: _themeCubit!,
         ),
       ],
-      child: BlocBuilder<LanguageBloc, LanguagesState>(
+      child: BlocBuilder<LanguagesBloc, LanguagesState>(
         builder: (context, languageState) {
           if (languageState is LanguageLoadedState) {
             return BlocBuilder<ThemeCubit, Themes>(
