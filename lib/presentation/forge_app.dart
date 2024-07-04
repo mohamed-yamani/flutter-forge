@@ -28,6 +28,7 @@ class _ForgeAppState extends State<ForgeApp> {
   void initState() {
     super.initState();
     languageBloc = getItInstance<LanguagesBloc>();
+    languageBloc!.add(LoadPreferredLanguagesEvent());
     _themeCubit = getItInstance<ThemeCubit>();
     _themeCubit!.loadPreferredTheme();
   }
