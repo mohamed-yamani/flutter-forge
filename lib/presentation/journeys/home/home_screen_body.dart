@@ -36,6 +36,15 @@ class HomeScreenBody extends StatelessWidget {
               TranslationConstants.settings.t(context),
             ),
           ),
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(RouteList.settings);
+            },
+            icon: Icon(
+              Icons.settings,
+              // color: Theme.of(context).primaryColor,
+            ),
+          ),
           // DetailsScreen
           ElevatedButton(
             onPressed: () {
