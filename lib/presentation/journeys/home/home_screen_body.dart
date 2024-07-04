@@ -42,7 +42,7 @@ class HomeScreenBody extends StatelessWidget {
             },
             icon: Icon(
               Icons.settings,
-              // color: Theme.of(context).primaryColor,
+              color: Theme.of(context).primaryColor,
             ),
           ),
           // DetailsScreen
