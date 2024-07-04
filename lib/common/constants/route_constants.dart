@@ -13,4 +13,8 @@ class RouteList {
   static const String splash = '/splash';
   static const String onBoarding = '/on-boarding';
   static const String search = '/search';
+  static const String settings = '/settings';
+  static const String theme = '/theme';
+  static const String language = '/language';
+  static const String details = '/details';
 }

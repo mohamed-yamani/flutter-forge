@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterforge/common/constants/languages.dart';
+import 'package:flutterforge/common/constants/route_constants.dart';
 import 'package:flutterforge/common/constants/size_constants.dart';
 import 'package:flutterforge/common/constants/translation_constants.dart';
 import 'package:flutterforge/common/extensions%20/size_extensions.dart';
@@ -68,6 +69,7 @@ class _MyNavigationDrawerState extends State<MyNavigationDrawer>
               icon: Icons.settings,
               onTap: () {
                 Navigator.pop(context);
+                Navigator.of(context).pushNamed(RouteList.settings);
               },
             ),
             NavigationExpandedListItem(

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutterforge/common/constants/languages.dart';
+import 'package:flutterforge/common/constants/route_constants.dart';
 import 'package:flutterforge/common/screenutil/screenutil.dart';
 import 'package:flutterforge/di/get_it.dart';
 import 'package:flutterforge/presentation/app_localizations.dart';
 import 'package:flutterforge/presentation/blocs/language_bloc/language_bloc.dart';
 import 'package:flutterforge/presentation/blocs/theme/theme_cubit.dart';
+import 'package:flutterforge/presentation/fade_page_route_builder.dart';
 import 'package:flutterforge/presentation/journeys/home/home_screen.dart';
+import 'package:flutterforge/presentation/routes.dart';
 import 'package:flutterforge/presentation/themes/app_color.dart';
 import 'package:flutterforge/presentation/themes/theme_text.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -96,7 +99,23 @@ class _ForgeAppState extends State<ForgeApp> {
                     }
                     return supportedLocales.first;
                   },
-                  home: const HomeScreen(),
+                  // home: const HomeScreen(),
+                  builder: (context, child) {
+                    return MediaQuery(
+                      data: MediaQuery.of(context)
+                          .copyWith(textScaler: const TextScaler.linear(1.0)),
+                      child: child!,
+                    );
+                  },
+                  initialRoute: RouteList.home,
+                  onGenerateRoute: (settings) {
+                    final routes = Routes.getRoutes(settings);
+                    final WidgetBuilder? builder = routes[settings.name];
+                    return FadePageRouteBuilder(
+                      builder: builder!,
+                      settings: settings,
+                    );
+                  },
                 );
               },
             );
