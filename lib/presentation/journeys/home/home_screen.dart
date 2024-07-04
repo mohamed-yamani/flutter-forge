@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.background,
+          foregroundColor: Theme.of(context).primaryColor,
           title: Text(
             "Flutter Forge",
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
