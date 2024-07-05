@@ -6,8 +6,10 @@ import 'package:flutterforge/common/screenutil/screenutil.dart';
 import 'package:flutterforge/di/get_it.dart';
 import 'package:flutterforge/presentation/app_localizations.dart';
 import 'package:flutterforge/presentation/blocs/languages/languages_bloc.dart';
+import 'package:flutterforge/presentation/blocs/loading_bloc/loading_bloc.dart';
 import 'package:flutterforge/presentation/blocs/theme/theme_cubit.dart';
 import 'package:flutterforge/presentation/fade_page_route_builder.dart';
+import 'package:flutterforge/presentation/journeys/loading/loading_screen.dart';
 import 'package:flutterforge/presentation/routes.dart';
 import 'package:flutterforge/presentation/themes/app_color.dart';
 import 'package:flutterforge/presentation/themes/theme_text.dart';
@@ -23,10 +25,12 @@ class ForgeApp extends StatefulWidget {
 class _ForgeAppState extends State<ForgeApp> {
   LanguagesBloc? languageBloc;
   ThemeCubit? _themeCubit;
+  LoadingBloc? loadingBloc;
 
   @override
   void initState() {
     super.initState();
+    loadingBloc = getItInstance<LoadingBloc>();
     languageBloc = getItInstance<LanguagesBloc>();
     languageBloc!.add(LoadPreferredLanguagesEvent());
     _themeCubit = getItInstance<ThemeCubit>();
@@ -35,7 +39,9 @@ class _ForgeAppState extends State<ForgeApp> {
 
   @override
   void dispose() {
+    loadingBloc!.close();
     languageBloc!.close();
+    _themeCubit!.close();
     super.dispose();
   }
 
@@ -49,6 +55,9 @@ class _ForgeAppState extends State<ForgeApp> {
         ),
         BlocProvider.value(
           value: _themeCubit!,
+        ),
+        BlocProvider.value(
+          value: loadingBloc!,
         ),
       ],
       child: BlocBuilder<LanguagesBloc, LanguagesState>(
@@ -107,7 +116,9 @@ class _ForgeAppState extends State<ForgeApp> {
                     return MediaQuery(
                       data: MediaQuery.of(context)
                           .copyWith(textScaler: const TextScaler.linear(1.0)),
-                      child: child!,
+                      child: LoadingScreen(
+                        child: child!,
+                      ),
                     );
                   },
                   initialRoute: RouteList.home,

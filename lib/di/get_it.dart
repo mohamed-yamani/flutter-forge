@@ -13,6 +13,7 @@ import 'package:flutterforge/domain/usecases/update_language_use_case.dart';
 import 'package:flutterforge/domain/usecases/update_theme_use_case.dart';
 import 'package:flutterforge/presentation/blocs/get_breeds_bloc/get_breeds_bloc.dart';
 import 'package:flutterforge/presentation/blocs/languages/languages_bloc.dart';
+import 'package:flutterforge/presentation/blocs/loading_bloc/loading_bloc.dart';
 import 'package:flutterforge/presentation/blocs/theme/theme_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
@@ -34,7 +35,11 @@ Future init() async {
   getItInstance.registerLazySingleton<GetBreedsUseCase>(
       () => GetBreedsUseCase(getItInstance()));
 
+  // LoadingBloc
+  getItInstance.registerSingleton<LoadingBloc>(LoadingBloc());
+
   getItInstance.registerSingleton<GetBreedsBloc>(GetBreedsBloc(
+    loadingBloc: getItInstance(),
     getBreedsUseCase: getItInstance(),
   ));
 
