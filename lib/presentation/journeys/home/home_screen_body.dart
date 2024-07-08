@@ -4,6 +4,7 @@ import 'package:flutterforge/common/constants/translation_constants.dart';
 import 'package:flutterforge/common/extensions%20/string_extensions.dart';
 import 'package:flutterforge/presentation/journeys/details/details_screen.dart';
 import 'package:flutterforge/presentation/themes/toggle_theme.dart';
+import 'package:flutterforge/presentation/widgets/logo.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({
@@ -57,7 +58,10 @@ class HomeScreenBody extends StatelessWidget {
             child: Text(
               TranslationConstants.details.t(context),
             ),
+
+            //
           ),
+          const Logo(size: 030),
         ],
       ),
     );
